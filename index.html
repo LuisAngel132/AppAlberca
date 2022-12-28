@@ -46,14 +46,14 @@
                     <form id="form">
                         <div class="mb-3 card-title">
                             <label for="exampleInputEmail1" class="form-label">Nombre</label>
-                            <input type="text" class="form-control user-password" id="nombre" aria-describedby="emailHelp"/>
+                            <input required autocomplete="off" type="text" class="form-control user-password" id="nombre" aria-describedby="emailHelp"/>
                             <div id="emailHelp" class="form-text ">
                                 Ingresa el nombre de la persona
                             </div>
                         </div>
                         <div class="mb-3 card-title">
                             <label for="exampleInputPassword1" class="form-label user-name">Cantidad</label>
-                            <input type="number" class="form-control" id="adelanto"/>
+                            <input type="number" required autocomplete="off" class="form-control" id="adelanto"/>
                             <div id="emailHelp" class="form-text ">
                                 Ingresa la cantidad con que se aparto
                             </div>
@@ -61,7 +61,7 @@
                         <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label user-name">Ingresa la fecha apartada</label>
 
-                            <input id="doi" class="form-control" autocomplete="off"/>
+                            <input required  id="doi" class="form-control" autocomplete="off"/>
                         </div>
                         <button id="insert" type="submit" class="btn btn-info">
                             Agregar
@@ -81,5 +81,6 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+        
     </body>
 </html></body></html>

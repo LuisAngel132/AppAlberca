@@ -1,4 +1,5 @@
 import { saveuser,getusers } from "../firestore.js";
+
 window.addEventListener("DOMContentLoaded", () => {
   
 });
@@ -49,4 +50,5 @@ form.addEventListener("submit", (e) => {
   saveuser(name, adelanto,fecha_asignada);
   reload_dates();
   form.reset()
+  alert("Se ha registrado correctamente");
 });
