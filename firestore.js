@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-import { getFirestore,collection,addDoc,getDocs,updateDoc } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
+import { getFirestore,collection,addDoc,getDocs,updateDoc,doc} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
 
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-analytics.js";
 
