@@ -68,6 +68,25 @@
             </tbody>
         </table>
         
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Actualizar</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+               <div id="form_actualizar"></div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Salir</button>
+                <button type="button" class="btn btn-primary" id="actualizar">Guardar cambios</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
         <script type="module">
           var minDate, maxDate;
 
@@ -107,17 +126,19 @@ $(document).ready(function() {
 
                         let arreglo = [];
                         for (var i = 0; i < obj.documents.length; i++) {
-                            let adelanto = JSON.stringify(obj.documents[i].fields.adelanto.stringValue);
-                            let nombre = JSON.stringify(obj.documents[i].fields.nombre.stringValue);
-                            let fecha_asignada = JSON.stringify(obj.documents[i].fields.fecha_asignada.stringValue);
-                            nombre = nombre.replace(/['"]+/g, '');
-                            adelanto = adelanto.replace(/['"]+/g, '');
-                            fecha_asignada = fecha_asignada.replace(/['"]+/g, '');
+                            let id = obj.documents[i].name;
+                             id = id.split('/');
+                            id = id[6];
+                            let adelanto = obj.documents[i].fields.adelanto.stringValue;
+                            let nombre =obj.documents[i].fields.nombre.stringValue
+                            let fecha_asignada = obj.documents[i].fields.fecha_asignada.stringValue;
+                          
                             fecha_asignada = new Date(fecha_asignada);
                             fecha_asignada = fecha_asignada.setDate(fecha_asignada.getDate() + 1);
                             fecha_asignada = new Date(fecha_asignada);
 
                             let object = {
+                                 id:id,
                                 nombre: nombre,
                                 adelanto: adelanto,
                                 fecha_asignada: fecha_asignada
@@ -158,8 +179,41 @@ $(document).ready(function() {
                 initComplete: function () {
                     $(document).on("click", "button[role='eliminar_herramienta']", function () {
                         var data = dt.row($(this).parents('tr')).data();
-                        alert(JSON.stringify(data));
+                        document.getElementById("form_actualizar").innerHTML = `
+                        <div class="user-login-box ">
+            <div class="card  text-center">
+                <div class="card-header">
+                </div>
+                <div class="card-body">
+                        <div class="mb-3 card-title">
+                            <label for="exampleInputEmail1" class="form-label">Nombre</label>
+                            <input required autocomplete="off" type="text" class="form-control user-password" id="nombre" disabled value=${data.nombre} aria-describedby="emailHelp"/>
+                          
+                        </div>
+                        <div class="mb-3 card-title">
+                            <label for="exampleInputPassword1" class="form-label user-name">Cantidad</label>
+                            <input type="number"  value="${data.adelanto}" required autocomplete="off" class="form-control" id="adelanto"/>
+                          
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label user-name">Ingresa la fecha apartada</label>
 
+                            <input required  disabled value="${data.fecha_asignada.toDateString()}" class="form-control" autocomplete="off"/>
+                        </div>
+                       
+                </div>
+                <div class="card-footer text-muted">
+                   
+                </div>
+            </div>
+        </div>
+                        `
+                        $('#exampleModal').modal('show');
+                        const actualizar = document.getElementById("actualizar");
+                        actualizar.addEventListener('click',(event)=> {
+                         const adelanto = document.getElementById("adelanto").value;
+                          alert(data.id + ' ' + adelanto + " " + data.nombre + " " + data.fecha_asignada.toDateString());
+                        });
 
                     });
                 },

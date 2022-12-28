@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-import { getFirestore,collection,addDoc,getDocs } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
+import { getFirestore,collection,addDoc,getDocs,updateDoc } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
 
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-analytics.js";
 
@@ -25,3 +25,4 @@ const db = getFirestore();
 export const saveuser = (nombre,adelanto,fecha_asignada)=>
 addDoc(collection(db, "users"),{nombre,adelanto,fecha_asignada});
 export const getusers= () =>getDocs(collection(db, "users"));
+export const updateusers = (id,field) => updateDoc(doc(db, "users",id),field);
