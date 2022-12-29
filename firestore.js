@@ -26,3 +26,6 @@ export const saveuser = (nombre,adelanto,fecha_asignada)=>
 addDoc(collection(db, "users"),{nombre,adelanto,fecha_asignada});
 export const getusers= () =>getDocs(collection(db, "users"));
 export const updateusers = (id,field) => updateDoc(doc(db, "users",id),field);
+export const updateconfiguraciones = (precio)=>
+updateDoc(collection(db, "configuraciones","Vq4uaOxlUotSqCRdwnbe"),{precio});
+export const getconfiguraciones= () =>getDocs(collection(db, "configuraciones"));
