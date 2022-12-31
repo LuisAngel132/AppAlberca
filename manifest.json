@@ -1,0 +1,17 @@
+{
+    "name": "AppAlberca",
+    "short_name": "AppAlberca",
+    "theme_color": "#2196f3",
+    "background_color": "#2196f3",
+    "display": "fullscreen",
+    "orientation": "portrait",
+    "scope": "./",
+    "start_url": "./",
+    "icons": [
+        {
+            "src": "./600x400icon.jpg",
+            "type": "image/jpg",
+            "sizes": "600x400"
+        }
+    ]
+}

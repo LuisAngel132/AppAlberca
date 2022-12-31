@@ -231,6 +231,8 @@
         updateconfiguraciones,
         getconfiguraciones,
       } from "../firestore.js";
+      let cont = 0;
+
       let costo = null;
       let coste = document.getElementById("actualizarprecio");
       coste.addEventListener("click", (event) => {
@@ -390,22 +392,26 @@
             </div>
         </div>
                         `;
-
+let array = [];
                 $("#exampleModal").modal("show");
                 if ( $("#exampleModal").modal("show")) {
+                  cont ++;
+                    if(cont > 1)
+                    {
+                      alert(" Se previene un error que aun no sabe como repararse gracias, por faor vuelva a intentarlo");                      window.location.reload();
+                    }
                         let text_adelanto = document.getElementById("adelanto_cantidad");
                 dinero_dado = parseInt(dinero_dado);
                 let adelanto_pasado = parseInt(costo);
                 let cantidad_debida = adelanto_pasado - dinero_dado;
                 text_adelanto.value = `${cantidad_debida}`;
-                const actualizar = document.getElementById("actualizar");
-                   
+                let actualizar = document.getElementById("actualizar");
+                
                 }
-       
-
-              
+                
                 actualizar.addEventListener("click", (event) => {
-                let  adelanto = "pagado";
+                  cont = 0;
+                  let  adelanto = "pagado";
                   updateusers(data.id, { adelanto });
                   $("#exampleModal").modal("hide");
                   var dtb = dt.row($(this).parents("tr"));
