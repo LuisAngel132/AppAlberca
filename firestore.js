@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-import { getFirestore,collection,addDoc,getDocs,updateDoc,doc} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
+import { getFirestore,collection,addDoc,getDocs,updateDoc,doc,deleteDoc} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
 
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-analytics.js";
 
@@ -29,3 +29,4 @@ export const updateusers = (id,field) => updateDoc(doc(db, "users",id),field);
 export const updateconfiguraciones = (id,precio)=>
 updateDoc(doc(db, "configuraciones",id),{precio});
 export const getconfiguraciones= () =>getDocs(collection(db, "configuraciones"));
+export const deleteuser = (id) => deleteDoc(doc(db, "users", id));

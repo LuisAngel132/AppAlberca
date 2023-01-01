@@ -136,7 +136,7 @@
       </div>
 
         <script type="module">
-            import {updateusers, updateconfiguraciones, getconfiguraciones} from "../firestore.js";
+            import {updateusers, updateconfiguraciones, getconfiguraciones,deleteuser} from "../firestore.js";
             let cont = 0;
 
             let costo = null;
@@ -257,7 +257,10 @@
                         $("#eliminar_herramienta").modal("show");
                         const button = document.getElementById("eliminar");
                         button.addEventListener("click", (event) => {
-                          alert("Esta opcion sigue en trabajo");
+                          var data = dt.row($(this).parents("tr")).data();
+                          deleteuser(data.id);
+                          dt.row($(this).parents('tr')).remove().draw();
+
                           $("#eliminar_herramienta").modal("hide");
                         });
                       });
