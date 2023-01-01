@@ -156,6 +156,7 @@
         <script type="module">
             import {updateusers, updateconfiguraciones, getconfiguraciones,deleteuser} from "../firestore.js";
             let cont = 0;
+            let cont_eliminar = 0;
 
             let costo = null;
             let coste = document.getElementById("actualizarprecio");
@@ -273,8 +274,16 @@
                     initComplete: function () {
                       $(document).on("click", "button[role='eliminar_herramienta']", function () {
                         $("#eliminar_herramienta").modal("show");
+                        if ($("#eliminar_herramienta").modal("show")) {
+                                cont_eliminar++;
+                                if (cont_eliminar > 1) {
+                                    alert(" Se previene un error que aun no sabe como repararse gracias, por favor vuelva a intentarlo");
+                                    window.location.reload();
+                                }
+                              }
                         const button = document.getElementById("eliminar");
                         button.addEventListener("click", (event) => {
+                          cont_eliminar = 0;
                           var data = dt.row($(this).parents("tr")).data();
                           deleteuser(data.id);
                           dt.row($(this).parents('tr')).remove().draw();
@@ -323,7 +332,7 @@
                             if ($("#exampleModal").modal("show")) {
                                 cont++;
                                 if (cont > 1) {
-                                    alert(" Se previene un error que aun no sabe como repararse gracias, por faor vuelva a intentarlo");
+                                    alert(" Se previene un error que aun no sabe como repararse gracias, por favor vuelva a intentarlo");
                                     window.location.reload();
                                 }
                                 let text_adelanto = document.getElementById("adelanto_cantidad");
