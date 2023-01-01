@@ -30,6 +30,10 @@ button.dt-button:first-child, div.dt-button:first-child, a.dt-button:first-child
     font-weight: bold;
 
 }
+.green {
+    background-color: rgb(43, 255, 0) !important;
+  }
+  
 .botones2{
     color: rgb(87, 166, 205) !important;
     font-weight: 700;
