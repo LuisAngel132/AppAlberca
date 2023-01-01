@@ -48,10 +48,10 @@
 
         <tr>
             <div class="botones" id="texto"></div>
-            <td>desde la fecha:</td>
+            <td ><span class="botones">desde la fecha:</span></td>
             <td><input type="text" id="min" name="min"/></td>
 
-            <td>hasta la fecha</td>
+            <td><span class="botones">hasta la fecha:</span></td>
             <td><input type="text" id="max" name="max"/></td>
         </tr>
 
@@ -326,7 +326,10 @@
                                 var idx = dt.row(dtb).index();
 
                                 dt.cell({row: idx, column: 2}).data(adelanto).draw(true);
+                                
+
                                 dt.cell({row: idx, column: 0}).data("<button type='button' role='eliminar_herramienta' class='btn btn-danger'><img widht='30' height='30' src='https://cdn.icon-icons.com/icons2/1808/PNG/512/trash-can_115312.png'></button>").draw(true);
+                                
 
                             });
                         });
