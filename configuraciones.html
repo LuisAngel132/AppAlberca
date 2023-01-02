@@ -6,8 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <title>Reportes y configuraciones</title>
     </head>
-    <body>
+    <body>      
       <div class="wrapper">
+
         <div><span class="dot"></span></div>
         <div><span class="dot"></span></div>
         <div><span class="dot"></span></div>
@@ -23,6 +24,7 @@
         <div><span class="dot"></span></div>
         <div><span class="dot"></span></div>
         <div><span class="dot"></span></div>
+        
       </div>
     <div></div>
   
@@ -64,25 +66,28 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.2/moment.min.js"></script>
         <script src="https://cdn.datatables.net/buttons/2.3.2/js/dataTables.buttons.min.js"></script>
 
-        <tr>
-            <div class="botones" id="texto"></div>
-            <td ><span class="botones">desde la fecha:</span></td>
-            <td><input type="text" id="min" name="min"/></td>
-
-            <td><span class="botones">hasta la fecha:</span></td>
-            <td><input type="text" id="max" name="max"/></td>
-        </tr>
-
+       <br>
+       <br>
+     
         <table id="example" class="table" style="width: 100%">
-            <thead class="text-dark">
-                <tr class="botones2">
+     
+          <thead class="text-dark">
+            <tr>
+              <td class="botones" id="texto"></td>
+              <td ><span class="botones">desde la fecha:</span></td>
+              <td><input type="text" id="min" name="min"/></td>
+      
+              <td class="botones"> hasta la fecha: <input type="text" id="max" name="max"/></td>
+          </tr>
+            <tr class="botones2">
                     <th class="text-center align-middle">Accion</th>
                     <th class="text-center align-middle">Nombre</th>
                     <th class="text-center align-middle">Cantidad de adelanto</th>
                     <th class="text-center align-middle">Fecha Apartada</th>
                 </tr>
             </thead>
-            <tbody class="text-center align-middle botones2"></tbody>
+            <tbody class="text-center align-middle botones2">
+            </tbody>
         </table>
         <div class="modal fade" id="Configuraciones" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
